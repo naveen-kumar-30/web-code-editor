@@ -849,3 +849,5 @@ const EXTENSIONS_TABLE = {
 function getLanguageForExtension(extension) {
     return EXTENSIONS_TABLE[extension] || {"flavor": CE, "language_id": 43}; // Plain Text (https://ce.judge0.com/languages/43)
 }
+
+
