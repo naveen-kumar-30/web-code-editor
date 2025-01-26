@@ -1,4 +1,4 @@
-const API_KEY = 'sk_live_cWYihzkpqEBnWANrlTqEvd2OE8O8IseY'; // Get yours at https://platform.sulu.sh/apis/judge0
+const API_KEY = "5043777f62msh56f5b8ee2e2c5c3p1f5578jsn3e73bfdbf93b"; // Get yours at https://platform.sulu.sh/apis/judge0
 
 const AUTH_HEADERS = API_KEY ? {
     "Authorization": `Bearer ${API_KEY}`
