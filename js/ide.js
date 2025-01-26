@@ -1,25 +1,22 @@
-const API_KEY = "5043777f62msh56f5b8ee2e2c5c3p1f5578jsn3e73bfdbf93b"; 
+const API_KEY = "5043777f62msh56f5b8ee2e2c5c3p1f5578jsn3e73bfdbf93b"; // Your RapidAPI Key
 
 const AUTH_HEADERS = API_KEY ? {
-    "Authorization": `Bearer ${API_KEY}`
+    "x-rapidapi-key": API_KEY,      // Use RapidAPI key for authorization
+    "x-rapidapi-host": "judge0.p.rapidapi.com", // Use the correct RapidAPI host
+    "Content-Type": "application/json"
 } : {};
 
 const CE = "CE";
 const EXTRA_CE = "EXTRA_CE";
 
-const AUTHENTICATED_CE_BASE_URL = "https://judge0-ce.p.sulu.sh";
-const AUTHENTICATED_EXTRA_CE_BASE_URL = "https://judge0-extra-ce.p.sulu.sh";
+// RapidAPI base URLs for Judge0
+const AUTHENTICATED_CE_BASE_URL = "https://judge0.p.rapidapi.com";
+const AUTHENTICATED_EXTRA_CE_BASE_URL = "https://judge0.p.rapidapi.com";
 
 var AUTHENTICATED_BASE_URL = {};
 AUTHENTICATED_BASE_URL[CE] = AUTHENTICATED_CE_BASE_URL;
 AUTHENTICATED_BASE_URL[EXTRA_CE] = AUTHENTICATED_EXTRA_CE_BASE_URL;
 
-const UNAUTHENTICATED_CE_BASE_URL = "https://ce.judge0.com";
-const UNAUTHENTICATED_EXTRA_CE_BASE_URL = "https://extra-ce.judge0.com";
-
-var UNAUTHENTICATED_BASE_URL = {};
-UNAUTHENTICATED_BASE_URL[CE] = UNAUTHENTICATED_CE_BASE_URL;
-UNAUTHENTICATED_BASE_URL[EXTRA_CE] = UNAUTHENTICATED_EXTRA_CE_BASE_URL;
 
 const INITIAL_WAIT_TIME_MS = 0;
 const WAIT_TIME_FUNCTION = i => 100;
