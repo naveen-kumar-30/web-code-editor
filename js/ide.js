@@ -7,8 +7,8 @@ const AUTH_HEADERS = API_KEY ? {
 const CE = "CE";
 const EXTRA_CE = "EXTRA_CE";
 
-const AUTHENTICATED_CE_BASE_URL ="https://69ad-2409-408d-4e86-4516-680c-934e-a871-2e86.ngrok-free.app/"; 
-const AUTHENTICATED_EXTRA_CE_BASE_URL = "https://69ad-2409-408d-4e86-4516-680c-934e-a871-2e86.ngrok-free.app/"; 
+const AUTHENTICATED_CE_BASE_URL ="https://69ad-2409-408d-4e86-4516-680c-934e-a871-2e86.ngrok-free.app"; 
+const AUTHENTICATED_EXTRA_CE_BASE_URL = "https://69ad-2409-408d-4e86-4516-680c-934e-a871-2e86.ngrok-free.app"; 
 
 var AUTHENTICATED_BASE_URL = {};
 AUTHENTICATED_BASE_URL[CE] = AUTHENTICATED_CE_BASE_URL;
