@@ -134,7 +134,7 @@ function showError(title, content) {
         `**Description**:\n${content}`
     );
 
-    $("#report-problem-btn").attr("href", `https://github.com/judge0/ide/issues/new?title=${reportTitle}&body=${reportBody}`);
+    $("#report-problem-btn").attr("href", `https://github.com/nexus/ide/issues/new?title=${reportTitle}&body=${reportBody}`);
     $("#site-modal").modal("show");
 }
 
@@ -246,7 +246,7 @@ function run() {
             headers: AUTH_HEADERS,
             success: function (data, textStatus, request) {
                 console.log(`Your submission token is: ${data.token}`);
-                let region = request.getResponseHeader('X-Judge0-Region');
+                let region = request.getResponseHeader('X-Nexus-Region');
                 setTimeout(fetchSubmission.bind(null, flavor, region, data.token, 1), INITIAL_WAIT_TIME_MS);
             },
             error: handleRunError
@@ -287,7 +287,7 @@ function fetchSubmission(flavor, region, submission_token, iteration) {
     $.ajax({
         url: `${UNAUTHENTICATED_BASE_URL[flavor]}/submissions/${submission_token}?base64_encoded=true`,
         headers: {
-            "X-Judge0-Region": region
+            "X-Nexus-Region": region
         },
         success: function (data) {
             if (data.status.id <= 2) { // In Queue or Processing
@@ -471,7 +471,7 @@ $(window).resize(refreshLayoutSize);
 $(document).ready(async function () {
     refreshSiteContentHeight();
 
-    console.log("Hey, Judge0 IDE is open-sourced: https://github.com/judge0/ide. Have fun!");
+    console.log("Hey, Nexus IDE is open-sourced: https://github.com/nexus/ide. Have fun!");
 
     $selectLanguage = $("#select-language");
     $selectLanguage.change(function (event, data) {
@@ -628,10 +628,9 @@ const DEFAULT_STDIN = `
 const DEFAULT_STDOUT = `
 Enter two numbers: The sum is: 15
 `;
-
 const DEFAULT_COMPILER_OPTIONS = "";
 const DEFAULT_CMD_ARGUMENTS = "";
-const DEFAULT_LANGUAGE_ID = 105; // C++ (GCC 14.1.0) (https://ce.judge0.com/languages/105)
+const DEFAULT_LANGUAGE_ID = 105; // C++ (GCC 14.1.0) (https://ce.nexus.com/languages/105)
 
 function getEditorLanguageMode(languageName) {
     const DEFAULT_EDITOR_LANGUAGE_MODE = "plaintext";
@@ -691,5 +690,5 @@ const EXTENSIONS_TABLE = {
 };
 
 function getLanguageForExtension(extension) {
-    return EXTENSIONS_TABLE[extension] || {"flavor": CE, "language_id": 43}; // Plain Text (https://ce.judge0.com/languages/43)
+    return EXTENSIONS_TABLE[extension] || {"flavor": CE, "language_id": 43}; // Plain Text (https://ce.nexus.com/languages/43)
 }
