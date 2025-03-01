@@ -91,7 +91,7 @@ var layoutConfig = {
     }]
 };
 
-const PUTER = puter.env === "app";
+// Removed puter related code
 var gPuterFile;
 
 function encode(str) {
@@ -328,25 +328,11 @@ function saveFile(content, filename) {
 }
 
 async function open() {
-    if (PUTER) {
-        gPuterFile = await puter.ui.showOpenFilePicker();
-        openFile(await (await gPuterFile.read()).text(), gPuterFile.name);
-    } else {
-        $("#open-file-input").click();
-    }
+    $("#open-file-input").click();
 }
 
 async function save() {
-    if (PUTER) {
-        if (gPuterFile) {
-            gPuterFile.write(sourceEditor.getValue());
-        } else {
-            gPuterFile = await puter.ui.showSaveFilePicker(sourceEditor.getValue(), getSourceCodeName());
-            setSourceCodeName(gPuterFile.name);
-        }
-    } else {
-        saveFile(sourceEditor.getValue(), getSourceCodeName());
-    }
+    saveFile(sourceEditor.getValue(), getSourceCodeName());
 }
 
 function setFontSizeForAllEditors(fontSize) {
@@ -608,57 +594,10 @@ $(document).ready(async function () {
     if (!/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
         superKey = "Ctrl";
     }
+
     [$runBtn, $saveBtn, $openBtn].forEach(btn => {
         btn.attr("data-tooltip", `${superKey}${btn.attr("data-tooltip")}`);
     });
-
-    if (PUTER) {
-        puter.ui.onLaunchedWithItems(async function(items){
-            gPuterFile = items[0];
-            openFile(await (await gPuterFile.read()).text(), gPuterFile.name);
-        });
-    }
-
-    window.onmessage = function(e) {
-        if (!e.data) {
-            return;
-        }
-
-        if (e.data.action === "get") {
-            window.top.postMessage(JSON.parse(JSON.stringify({
-                event: "getResponse",
-                source_code: sourceEditor.getValue(),
-                language_id: getSelectedLanguageId(),
-                flavor: getSelectedLanguageFlavor(),
-                stdin: stdinEditor.getValue(),
-                stdout: stdoutEditor.getValue(),
-                compiler_options: $compilerOptions.val(),
-                command_line_arguments: $commandLineArguments.val()
-            })), "*");
-        } else if (e.data.action === "set") {
-            if (e.data.source_code) {
-                sourceEditor.setValue(e.data.source_code);
-            }
-            if (e.data.language_id && e.data.flavor) {
-                selectLanguageByFlavorAndId(e.data.language_id, e.data.flavor);
-            }
-            if (e.data.stdin) {
-                stdinEditor.setValue(e.data.stdin);
-            }
-            if (e.data.stdout) {
-                stdoutEditor.setValue(e.data.stdout);
-            }
-            if (e.data.compiler_options) {
-                $compilerOptions.val(e.data.compiler_options);
-            }
-            if (e.data.command_line_arguments) {
-                $commandLineArguments.val(e.data.command_line_arguments);
-            }
-            if (e.data.api_key) {
-                AUTH_HEADERS["Authorization"] = `Bearer ${e.data.api_key}`;
-            }
-        }
-    };
 });
 
 const DEFAULT_SOURCE = `
@@ -689,7 +628,6 @@ const DEFAULT_STDIN = `
 const DEFAULT_STDOUT = `
 Enter two numbers: The sum is: 15
 `;
-
 
 const DEFAULT_COMPILER_OPTIONS = "";
 const DEFAULT_CMD_ARGUMENTS = "";
