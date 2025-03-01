@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Self-Hosted Judge0 IDE Integration</title>
+    <title>My Self-Hosted Nexus IDE Integration</title>
     <style>
         :root {
-            --judge0-blue: #2B3A8F;
-            --judge0-cyan: #00BDD2;
-            --judge0-pink: #ED2079;
-            --judge0-violet: #5F3282;
+            --nexus-blue: #2B3A8F;
+            --nexus-cyan: #00BDD2;
+            --nexus-pink: #ED2079;
+            --nexus-violet: #5F3282;
         }
 
         html, body {
@@ -19,9 +19,9 @@
             padding: 0;
         }
 
-        .judge0-gradient {
-            background: var(--judge0-cyan) !important;
-            background: linear-gradient(45deg, var(--judge0-cyan) 0%, var(--judge0-blue) 40%, var(--judge0-violet) 70%, var(--judge0-pink) 100%) !important;
+        .nexus-gradient {
+            background: var(--nexus-cyan) !important;
+            background: linear-gradient(45deg, var(--nexus-cyan) 0%, var(--nexus-blue) 40%, var (--nexus-violet) 70%, var(--nexus-pink) 100%) !important;
         }
 
         #site-header {
@@ -43,22 +43,22 @@
     </style>
 </head>
 <body>
-    <!-- Embedding Judge0 IDE in an iframe -->
-    <iframe id="judge0-ide" src="http://localhost:2358" width="100%" height="600px"></iframe>
+    <!-- Embedding Nexus IDE in an iframe -->
+    <iframe id="nexus-ide" src="http://localhost:2358" width="100%" height="600px"></iframe>
 
     <!-- A heading for the data viewer section -->
-    <h4>Data From My Self-Hosted Judge0 IDE</h4>
+    <h4>Data From My Self-Hosted Nexus IDE</h4>
 
-    <!-- Button to trigger data retrieval from Judge0 IDE -->
-    <button onclick="getDataFromJudge0IDE()">Get Data</button>
+    <!-- Button to trigger data retrieval from Nexus IDE -->
+    <button onclick="getDataFromNexusIDE()">Get Data</button>
 
-    <!-- Preformatted text element to display data retrieved from Judge0 IDE -->
-    <pre id="judge0-ide-data-viewer"></pre>
+    <!-- Preformatted text element to display data retrieved from Nexus IDE -->
+    <pre id="nexus-ide-data-viewer"></pre>
 
-    <!-- JavaScript to handle communication with the Judge0 IDE iframe -->
+    <!-- JavaScript to handle communication with the Nexus IDE iframe -->
     <script>
-        let iframeDataViewer = document.getElementById("judge0-ide-data-viewer");
-        let judge0IDE = document.getElementById("judge0-ide");
+        let iframeDataViewer = document.getElementById("nexus-ide-data-viewer");
+        let nexusIDE = document.getElementById("nexus-ide");
 
         window.onmessage = function(e) {
             if (!e.data) {
@@ -69,7 +69,7 @@
 
             if (e.data.event === "initialised") {
                 // Make sure to only post data after the IDE is initialised
-                judge0IDE.contentWindow.postMessage({
+                nexusIDE.contentWindow.postMessage({
                     action: "set",
                     api_key: "", // Set your API key here
                     source_code: "Welcome!",
@@ -83,8 +83,8 @@
             }
         };
 
-        function getDataFromJudge0IDE() {
-            judge0IDE.contentWindow.postMessage({action: "get"}, '*');
+        function getDataFromNexusIDE() {
+            nexusIDE.contentWindow.postMessage({action: "get"}, '*');
         }
     </script>
 </body>
