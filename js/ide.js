@@ -358,7 +358,7 @@ async function loadLangauges() {
                         options.push(option);
                     }
 
-                    if (language.id === DEFAULT_LANGUAGE_ID) {
+                    if (language.id === 105) {
                         option.selected = true;
                     }
                 }
