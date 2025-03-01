@@ -608,7 +608,6 @@ $(document).ready(async function () {
     if (!/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
         superKey = "Ctrl";
     }
-
     [$runBtn, $saveBtn, $openBtn].forEach(btn => {
         btn.attr("data-tooltip", `${superKey}${btn.attr("data-tooltip")}`);
     });
