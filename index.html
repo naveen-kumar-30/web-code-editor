@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://js.puter.com/v2/"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
@@ -24,10 +22,6 @@
     <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.nls.js"></script>
     <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -35,27 +29,11 @@
     <link type="text/css" rel="stylesheet" href="css/ide.css">
 
     <title>Online-Code-Editor</title>
-    <meta name="title" content="Web Code Editor">
     <meta name="description" content="online code editor that allows you to write and execute code from a rich set of languages.">
     <meta name="keywords" content="online editor, online code editor, online ide, online compiler, online interpreter, run code online, learn programming online,
     online debugger, programming in browser, online code runner, online code execution, debug online, debug C code online, debug C++ code online,
     programming online, snippet, snippets, code snippet, code snippets, pastebin, execute code, programming in browser, run c online, run C++ online,
     run java online, run python online, run ruby online, run c# online, run rust online, run pascal online, run basic online">
-
-    <meta property="og:url" content="https://Web-Code-Editor.com">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Web-Code-Editor">
-    <meta property="og:image" content="">
-    <meta property="og:image:alt" content="">
-    <meta property="og:description" content="Web-Code-Editor">
-    <meta property="og:site_name" content="Nexus">
-    <meta property="og:locale" content="en_US">
-
-    <meta property="twitter:url" content="">
-    <meta property="twitter:card" content="">
-    <meta property="twitter:title" content="">
-   
-    <meta property="twitter:description" content="">
 
     <link rel="icon" sizes="192x192" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/favicon.ico" type="image/x-icon">
@@ -64,13 +42,11 @@
 
 <body>
     <div id="site-navigation" class="ui top attached inverted borderless tiny menu">
-       
         <div class="item">
             <div class="ui input">
                 <select id="select-language" class="ui dropdown"></select>
             </div>
         </div>
-       
         <div class="item">
             <div class="ui input">
                 <input id="command-line-arguments" type="text" placeholder="Command line arguments"></input>
@@ -108,7 +84,6 @@
     </div>
 
     <div id="site-footer" class="ui bottom attached inverted borderless mini menu">
-       
         <div class="right menu">
             <div id="status-line" class="item"></div>
         </div>
