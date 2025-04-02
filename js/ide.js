@@ -1,4 +1,4 @@
-const API_KEY = "5043777f62msh56f5b8ee2e2c5c3p1f5578jsn3e73bfdbf93b"; // Replace with your actual API key if needed
+const API_KEY = ""; // Replace with your actual API key if needed
 
 const AUTH_HEADERS = API_KEY ? {
     "Content-Type": "application/json",
