@@ -1,24 +1,26 @@
-const API_KEY = ""; // Replace with your actual API key if needed
+const API_KEY = ""; // Get yours at https://platform.sulu.sh/apis/judge0
 
 const AUTH_HEADERS = API_KEY ? {
-    "Content-Type": "application/json",
     "Authorization": `Bearer ${API_KEY}`
-} : {
-    "Content-Type": "application/json"
-};
+} : {};
 
 const CE = "CE";
 const EXTRA_CE = "EXTRA_CE";
 
-const AUTHENTICATED_CE_BASE_URL = "https://api.judge0.com/";
-const AUTHENTICATED_EXTRA_CE_BASE_URL = "https://api.judge0.com/";
+const AUTHENTICATED_CE_BASE_URL = "https://judge0-ce.p.sulu.sh";
+const AUTHENTICATED_EXTRA_CE_BASE_URL = "https://judge0-extra-ce.p.sulu.sh";
 
 var AUTHENTICATED_BASE_URL = {};
 AUTHENTICATED_BASE_URL[CE] = AUTHENTICATED_CE_BASE_URL;
 AUTHENTICATED_BASE_URL[EXTRA_CE] = AUTHENTICATED_EXTRA_CE_BASE_URL;
 
-const UNAUTHENTICATED_CE_BASE_URL = "https://api.judge0.com/";
-const UNAUTHENTICATED_EXTRA_CE_BASE_URL = "https://api.judge0.com/";
+const UNAUTHENTICATED_CE_BASE_URL = "https://ce.judge0.com";
+const UNAUTHENTICATED_EXTRA_CE_BASE_URL = "https://extra-ce.judge0.com";
+
+var UNAUTHENTICATED_BASE_URL = {};
+UNAUTHENTICATED_BASE_URL[CE] = UNAUTHENTICATED_CE_BASE_URL;
+UNAUTHENTICATED_BASE_URL[EXTRA_CE] = UNAUTHENTICATED_EXTRA_CE_BASE_URL;
+
 
 
 const INITIAL_WAIT_TIME_MS = 0;
